@@ -24,7 +24,7 @@ public class menu {
         for (int indice = 0; indice < 5; indice++) {
             System.out.println("\u001B[34m" + "»" + "\u001B[37m" + "  " + this.nombres[indice]);
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (Exception e) {
             }
         }

@@ -1,4 +1,4 @@
-package poliretos;
+package poli_retos;
 
 public class letras {
     public int filas,

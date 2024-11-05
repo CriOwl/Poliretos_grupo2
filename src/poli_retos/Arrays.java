@@ -3,27 +3,31 @@ package poli_retos;
 import java.util.Scanner;
 
 public class Arrays {
-
+    public String frase;
+    public int[]porcentajesStr;
+    public Integer tamanio;
+    public char[][][] matriz_letras;
+    public Arrays(String frase, String porcentajes_carga){
+            this.frase=frase;
+            this.porcentajesStr=porcentajes_carga;
+    }
     public void Array01() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese una frase con múltiples palabras:");
-        String frase = scanner.nextLine();
-        
-        String[] palabras = frase.split(" ");
-        int[] porcentajes = new int[palabras.length];
-        
+        String palabras;
+        int indice=0;
+        Scanner separador=new Scanner(frase);
+        int[] porcentajes;
+        //-----------------------
         System.out.println("Ingrese los porcentajes de carga para cada palabra (separados por comas):");
-        String porcentajesStr = scanner.nextLine();
+        while(separador.hasNext()){
+            palabras+=separador.next();
+        }
         String[] porcentajesArr = porcentajesStr.split(",");
-        
         for (int i = 0; i < porcentajes.length; i++) {
             porcentajes[i] = Integer.parseInt(porcentajesArr[i].trim());
         }
-        
         for (int i = 0; i < palabras.length; i++) {
             int longitud = palabras[i].length();
             int caracteresCargados = (longitud * porcentajes[i]) / 100;
-            
             System.out.print("[");
             for (int j = 0; j < longitud; j++) {
                 if (j < caracteresCargados) {
@@ -37,7 +41,7 @@ public class Arrays {
         }
     }
 
-    private void Array02(){
+    private void g2_arrays03(){
         for (int filas = 0; filas < tamanio; filas++) {
             for (int columnas = 0; columnas < tamanio; columnas++) {
                 System.out.print(matriz_letras[0][filas][columnas]);
@@ -103,8 +107,8 @@ public class Arrays {
     public void g2_array05() {
         System.out.print("\n- Serie A05.\n");
         System.out.println("Ingrese su nombre completo");
-        Scanner sc = new Scanner(System.in);
-        String nombreCompleto = sc.nextLine();
+        //------------------------------------------
+        String nombreCompleto = this.frase;
         System.out.println("");
         String[] palabras = nombreCompleto.split(" ");
         String primerPalabra = palabras[0];
@@ -117,11 +121,8 @@ public class Arrays {
                 matriz[i][j] = ' ';
             }
         }
-
         for (int k = 0; k < palabras.length; k++) {
             primerPalabra = palabras[k];
-            
-
             for (char letra : primerPalabra.toCharArray()) {
                 int x, y;
 
